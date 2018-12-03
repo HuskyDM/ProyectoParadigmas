@@ -10,5 +10,5 @@ package optimizacion;
  * @author Jay
  */
 public class GeneticSR {
-    int i;
+    int j;
 }

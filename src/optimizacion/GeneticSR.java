@@ -28,7 +28,8 @@ public class GeneticSR {
         //Se agrega al gen el random
         //double noise = r.nextGaussian() * Math.sqrt(variance) + mean;
         double random = r.nextGaussian() * 0.1 + 0;
-        individual.setInfection-rate = individual.getInfection-rate + random;
+        individual.setInfection-rate(individual.getInfection-rate + random);
+        individual.setfluorescence(individual.getfluorescence + random);
         
         // Loop over current population by fitness
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {

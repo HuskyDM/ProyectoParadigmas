@@ -25,6 +25,11 @@ public class GeneticSR {
         
         boolean wasSwapped = false;
 
+        //Se agrega al gen el random
+        //double noise = r.nextGaussian() * Math.sqrt(variance) + mean;
+        double random = r.nextGaussian() * 0.1 + 0;
+        individual.setInfection-rate = individual.getInfection-rate + random;
+        
         // Loop over current population by fitness
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
             // within bounds or random chance

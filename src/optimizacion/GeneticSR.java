@@ -5,12 +5,15 @@
  */
 package optimizacion;
 
+import java.util.Random;
+
 /**
  *
  * @author Jay
  */
 public class GeneticSR {
     int i;
+    Random r = new Random();
     
     public Population mutatePopulationSR(Population population) {
         Double pf = 0.475;  //This parameter is a numerical value in the interval (0, 1)
@@ -29,7 +32,7 @@ public class GeneticSR {
                 //Comparación de Value de geneticSR
                 
                 //if (Value(j) > Value(j + 1))
-                if(population.getFittest(populationIndex) > population.getFittest(populationIndex+1)) {
+                if (population.getFittest(populationIndex) > population.getFittest(populationIndex+1)) {
                     swap(populationIndex, populationIndex + 1);
                     wasSwapped = true;
                 }

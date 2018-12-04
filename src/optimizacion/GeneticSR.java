@@ -13,9 +13,6 @@ public class GeneticSR {
     int i;
     
     public Population mutatePopulationSR(Population population) {
-        Phi phi = new Phi();
-        
-        UniformRandom uniformRandom = new UniformRandom();
         Double pf = 0.475;  //This parameter is a numerical value in the interval (0, 1)
                             //determining the chance that individuals either outside the parameter boundaries
                             //or violating the constraints are compared during the selection. The default is '0.475'.
@@ -28,7 +25,7 @@ public class GeneticSR {
         // Loop over current population by fitness
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
             // within bounds or random chance
-            if( (phi.phi(populationIndex) == 0 && phi.phi(populationIndex+1) == 0) || uniformRandom.uniform(0, 1) < pf ){
+            if ((phi(populationIndex) == 0 && phi(populationIndex + 1) == 0) || UniformRandom.uniform(0, 1) < pf) {
                 //Comparación de Value de geneticSR
                 
                 //if (Value(j) > Value(j + 1))
@@ -47,9 +44,15 @@ public class GeneticSR {
             newPopulation.setIndividual(populationIndex, individual);
         }
         
-        if (wasSwapped == false) break;
+        //if (wasSwapped == false) break;
         
         // Return mutated population
         return newPopulation;
     }
+    
+    private int phi(int valor) {
+        return 0;
+    }
+    
+    private void swap(int valor1, int valor2) {}
 }

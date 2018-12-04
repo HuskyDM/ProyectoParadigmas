@@ -25,15 +25,19 @@ public class GeneticSR {
         
         boolean wasSwapped = false;
 
-        //Se agrega al gen el random
-        //double noise = r.nextGaussian() * Math.sqrt(variance) + mean;
-        double random = r.nextGaussian() * 0.1 + 0;
-        individual.setInfection-rate(individual.getInfection-rate + random);
-        individual.setfluorescence(individual.getfluorescence + random);
+       
         
         // Loop over current population by fitness
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
             // within bounds or random chance
+            
+            
+                //Se agrega al gen el random
+           //double noise = r.nextGaussian() * Math.sqrt(variance) + mean;
+           double random = r.nextGaussian() * 0.1 + 0;
+           individual.setInfection-rate(individual.getInfection-rate + random);
+           individual.setfluorescence(individual.getfluorescence + random);
+            
             if ((phi(populationIndex) == 0 && phi(populationIndex + 1) == 0) || UniformRandom.uniform(0, 1) < pf) {
                 //Comparación de Value de geneticSR
                 
@@ -60,8 +64,18 @@ public class GeneticSR {
     }
     
     private int phi(int valor) {
+        
+        
+        
+        
         return 0;
     }
     
-    private void swap(int valor1, int valor2) {}
+    private void swap(int valor1, int valor2) {
+    
+    
+    
+    }
+    
+    
 }

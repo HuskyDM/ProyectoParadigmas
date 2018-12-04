@@ -14,7 +14,10 @@ public class GeneticSR {
     
     
     
-        Phi phi = new Phi();
+    
+     public Population mutatePopulationSR(Population population) {
+    
+                Phi phi = new Phi();
                 UniformRandom uniformRandom = new UniformRandom();
                 
                 Double pf = 0.475; //This parameter is a numerical value in the interval (0, 1) 

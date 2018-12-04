@@ -21,28 +21,26 @@ public class GeneticSR {
                             //or violating the constraints are compared during the selection. The default is '0.475'.
 
         // Initialize new population
-	Population newPopulation = new Population(this.populationSize);
+	Population newPopulation = new Population(population.size());
         
         boolean wasSwapped = false;
 
-       
-        
         // Loop over current population by fitness
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
             // within bounds or random chance
             
+            //Se agrega al gen el random
             
-                //Se agrega al gen el random
-           //double noise = r.nextGaussian() * Math.sqrt(variance) + mean;
-           double random = r.nextGaussian() * 0.1 + 0;
-           individual.setInfection-rate(individual.getInfection-rate + random);
-           individual.setfluorescence(individual.getfluorescence + random);
+            //double noise = r.nextGaussian() * Math.sqrt(variance) + mean;
+            double random = r.nextGaussian() * 0.1 + 0;
+            //individual.setInfection-rate(individual.getInfection-rate + random);
+            //individual.setfluorescence(individual.getfluorescence + random);
             
             if ((phi(populationIndex) == 0 && phi(populationIndex + 1) == 0) || UniformRandom.uniform(0, 1) < pf) {
                 //Comparación de Value de geneticSR
                 
                 //if (Value(j) > Value(j + 1))
-                if (population.getFittest(populationIndex) > population.getFittest(populationIndex+1)) {
+                if (population.getFittest(populationIndex).getFitness() > population.getFittest(populationIndex+1).getFitness()) {
                     swap(populationIndex, populationIndex + 1);
                     wasSwapped = true;
                 }
@@ -54,7 +52,7 @@ public class GeneticSR {
             }
             
             // Add individual to population
-            newPopulation.setIndividual(populationIndex, individual);
+            //newPopulation.setIndividual(populationIndex, individual);
         }
         
         //if (wasSwapped == false) break;
@@ -76,6 +74,4 @@ public class GeneticSR {
     
     
     }
-    
-    
 }

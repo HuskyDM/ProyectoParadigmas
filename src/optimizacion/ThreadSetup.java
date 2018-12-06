@@ -13,13 +13,13 @@ import java.util.List;
  *
  * @author Jay
  */
-public class ThemiddleMod {
+public class ThreadSetup {
     
     private HashMap<String,Double>[] results;
     private List<Solucion> soluciones;
     
     
-    ThemiddleMod(List<Solucion> dalist){
+    ThreadSetup(List<Solucion> dalist){
     
     this.soluciones=new ArrayList<Solucion>();    
     results = new HashMap[2];

@@ -11,7 +11,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ThreadTrial tru = new ThreadTrial();
+        ThreadCall tru = new ThreadCall();
         tru.runProject();
     }
     

@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Jay
  */
-public class ThreadTrial {
+public class ThreadCall {
 
     /**
      * @param args the command line arguments
@@ -21,7 +21,7 @@ public class ThreadTrial {
     
     List<Solucion> iniciales;
     
-        public ThreadTrial(){
+        public ThreadCall(){
             this.iniciales = new ArrayList<Solucion>();
         }
     
@@ -43,7 +43,7 @@ public class ThreadTrial {
        Solucion sol2 = new Solucion(1, 2.0, 0.0, 1.5, 15.0, 100.0, 0.595, 2.50, 0.12);
        
        //List<HashMap<String,Double>> dalist = new ArrayList<HashMap<String,Double>>();
-       ThreadTrial tru = new ThreadTrial();
+       ThreadCall tru = new ThreadCall();
        
        tru.iniciales.add(sol1);
        tru.iniciales.add(sol2);
@@ -52,7 +52,7 @@ public class ThreadTrial {
        //HashMap<String,Double> hmap2 = new HashMap<String,Double>();
        //hmap2=sol1.getParameters();
        //System.out.println("hmap2="+sol1.getValue("cell-density"));
-       ThemiddleMod mid = new ThemiddleMod(tru.iniciales);
+       ThreadSetup mid = new ThreadSetup(tru.iniciales);
        
       List<Solucion>results = mid.getResults();
       Printer printer = new Printer();  

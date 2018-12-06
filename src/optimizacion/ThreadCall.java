@@ -57,7 +57,7 @@ public class ThreadCall {
       List<Solucion>results = mid.getResults();
       Printer printer = new Printer();  
       
-      printer.printResults("threads",results);
+      printer.printResults("threads2",results);
       
       System.out.println("sol1 alive:"+tru.iniciales.get(0).getValue("alive5"));
       System.out.println("sol1 infected:"+tru.iniciales.get(0).getValue("infected5"));

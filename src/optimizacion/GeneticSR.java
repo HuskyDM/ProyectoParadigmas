@@ -26,12 +26,12 @@ public class GeneticSR {
 
 
           //Parámetros  
-           double[] arrayParamViejo = {1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5 };
+           double[] arrayParamViejo = {14, 7, 19 };
           
-           double[] arrayParamNuevo = {1, 2, 3, 4, 5, 6, 7, 8 };
-           
-          //Constraints
-           double[] arrayConstraints = {10.5 , 11.5 , 12.5 , 13.5}; 
+           double[] arrayParamNuevo = {15, 1, 22 };
+
+           double[] arrayMin = {2, 2, 2}; 
+           double[] arrayMax = {20, 20, 21}; 
          
  
         
@@ -44,13 +44,10 @@ public class GeneticSR {
             //individual.setInfection-rate(individual.getInfection-rate + random);
             //individual.setfluorescence(individual.getfluorescence + random);
             
-            
-              //Revisar si el parámetro sobrepasa su constraint
-           if( individual.getInfection-rate() < arrayConstraints){
            
-               phi(arrayParamViejo, arrayParamNuevo, arrayConstraints );
+               phi(arrayParamNuevo, arrayMin, arrayMax );
               
-           }
+          
             
             
             // within bounds or random chance
@@ -84,7 +81,7 @@ public class GeneticSR {
     
     
     
-    private double phi(double[] arrayParamViejo, double[] arrayParamNuevo, double[] arrayConstraints) {
+    private double phi( double[] arrayParamNuevo, double[] arrayMin, double[] arrayMax ) {
         
         int cantidadParams = 4;
                 
@@ -93,10 +90,17 @@ public class GeneticSR {
         
         for(int i = 0; i < cantidadParams; i++ ){
         
-            if(arrayParamNuevo[i] < arrayParamNuevo[i]){
+            if(arrayParamNuevo[i] < arrayMin[i] ){
+            
+              
+               resultado += (arrayMin[i]-arrayParamNuevo[i])*(arrayMin[i]-arrayParamNuevo[i]);
+                
+            }
+            
+            if(arrayParamNuevo[i] > arrayMax[i] ){
             
                 //(Parametro viejo - parametro nuevo)'2
-               resultado += (arrayParamViejo[i]-arrayParamNuevo[i])*(arrayParamViejo[i]-arrayParamNuevo[i]);
+               resultado += (arrayMax[i]-arrayParamNuevo[i])*(arrayMin[i]-arrayParamNuevo[i]);
                 
             }
             

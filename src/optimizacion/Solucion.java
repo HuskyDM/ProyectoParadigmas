@@ -50,6 +50,7 @@ public class Solucion {
         this.hmap.put("dead5",0.0);
         this.hmap.put("infected5",0.0);
     
+        this.hmap.put("Fitness", 0.0);
         this.hmap.put("Cell-Total",0.0);
     }
     
@@ -99,20 +100,38 @@ public class Solucion {
         return total;
     }
     
-    public double getFitness(){
-        //TODO: Fitness
+    public void setFitness(){
+    
         double fitness=0;
-        
-        double total = this.hmap.get("Cell-Total");
-        double promAlive = this.hmap.get("alive5")/total;
-        double promDead = this.hmap.get("dead5")/total;
-        double promInfected =  this.hmap.get("infected5")/total;
         
         double labAlive = 20.7832829381;
         double labDead = 68.1157972467;
         double labInfected = 11.1009198152;
         
-        return fitness;
+        double total = this.hmap.get("Cell-Total");
+        double promAlive = (this.hmap.get("alive5")*100)/total;
+        double promDead = (this.hmap.get("dead5")*100)/total;
+        double promInfected =  (this.hmap.get("infected5")*100)/total;
+        
+       // double sum = promAlive+promDead+promInfected;
+        
+        double downAlive=promAlive-labAlive;
+        double downDead=promDead-labDead;
+        double downInfected=promInfected-labInfected;
+        
+        double squareAlive=Math.pow(downAlive, 2);
+        double squareDead=Math.pow(downDead, 2);
+        double squareInfected=Math.pow(downInfected, 2);
+        
+        
+        double sumOfAll = squareAlive+squareDead+squareInfected;        
+        double newValue = sumOfAll/3;        
+        fitness = Math.sqrt(newValue);
+        this.hmap.replace("Fitness", fitness);
+    }
+    
+    public double getFitness(){  
+        return this.hmap.get("Fitness");
     }
     
     public int getId(){

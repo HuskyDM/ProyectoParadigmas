@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class Printer {
     
-    public void printResults(String filename, List<Solucion>dalist){
+    public void printResults(String filename, List<Solucion>dalist, int gen){
         List<HashMap<String,Double>> resList = new ArrayList<HashMap<String,Double>>();
         
         System.out.println("Size of dalist is "+dalist.size());
@@ -32,12 +32,12 @@ public class Printer {
         
         try {
             HashMap<String,Double> hmap = new HashMap<String,Double>();
-            BufferedWriter wr = new BufferedWriter(new FileWriter(filename + ".txt",true));           
+            BufferedWriter wr = new BufferedWriter(new FileWriter(filename + ".txt",true));   
             Iterator<HashMap<String, Double>> it = resList.iterator();
 
            while (it.hasNext()) {
                 hmap = it.next();
-                wr.append("------------------------------");
+                wr.append("--------Generacion "+gen+"------------");
                 wr.newLine();
                 wr.append("Solucion Id: "+hmap.get("id"));
                 wr.newLine();
@@ -97,7 +97,8 @@ public class Printer {
                 
                 wr.append("Total de Celulas : "+hmap.get("Cell-Total"));
                 wr.newLine();
-
+                wr.append("Fitness :"+hmap.get("Fitness"));
+                wr.newLine();
             }
              wr.append("------------------------------");
              wr.close();

@@ -22,16 +22,25 @@ public class ThreadSetup {
     ThreadSetup(List<Solucion> dalist){
     
     this.soluciones=new ArrayList<Solucion>();    
-    results = new HashMap[2];
-    Thread t1 = new Thread(new ThreadRun(dalist.get(0).getId(), results, dalist.get(0).getParameters()));
-    Thread t2 = new Thread(new ThreadRun(dalist.get(1).getId(), results, dalist.get(1).getParameters()));
+    results = new HashMap[5];
+    Thread t1 = new Thread(new ThreadRun(0, results, dalist.get(0).getParameters()));
+    Thread t2 = new Thread(new ThreadRun(1, results, dalist.get(1).getParameters()));
+    Thread t3 = new Thread(new ThreadRun(2, results, dalist.get(2).getParameters()));
+    Thread t4 = new Thread(new ThreadRun(3, results, dalist.get(3).getParameters()));
+    Thread t5 = new Thread(new ThreadRun(4, results, dalist.get(4).getParameters()));
     
     t1.start();
     t2.start();
+    t3.start();
+    t4.start();
+    t5.start();
     
     try{
     t1.join();
     t2.join();
+    t3.join();
+    t4.join();
+    t5.join();
     }
     catch(Exception e){
         e.printStackTrace();
@@ -61,6 +70,7 @@ public class ThreadSetup {
             dalist.get(i).setValue("infected5",results[i].get("infected5"));
            
             dalist.get(i).setCellTotal();
+            dalist.get(i).setFitness();
             
             soluciones.add(dalist.get(i));
     }
